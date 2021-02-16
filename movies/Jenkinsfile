@@ -86,8 +86,8 @@ pipeline {
                 // TODO: Expose the ${APP_NAME} service for external access
             	sh '''
 			oc project ${DEV_PROJECT}
-			oc new-app --as-deployment-config --name ${APP_NAME} -i ${APP_NAME}:lastest 
-			pc expose svc/${APP_NAME}
+			oc new-app --as-deployment-config --name ${APP_NAME} --image-stream="rowan-comish-rbc-com-movies-dev/movies:latest" 
+			oc expose svc/${APP_NAME}
 		'''
 		}
         }
